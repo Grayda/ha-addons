@@ -5,11 +5,12 @@ server {
     include /etc/nginx/includes/location_params.conf;
 
     location / {
-        allow   172.30.32.2;
-        deny    all;
 
         proxy_pass {{ .server }};
         proxy_set_header X-Ingress-Path {{ .entry }};
+        
+        # Disable buffering when the nginx proxy gets very resource heavy upon streaming
+        proxy_buffering off;
 
         {{ if .proxy_pass_host }}
           proxy_set_header Host $http_host;
