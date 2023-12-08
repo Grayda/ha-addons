@@ -1,5 +1,5 @@
 name: Jellyfin Proxy
-version: "0.2"
+version: "0.3"
 panel_icon: "mdi:filmstrip"
 panel_title: Jellyfin
 slug: jellyfin-proxy
